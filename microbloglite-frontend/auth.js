@@ -2,6 +2,7 @@
 
 "use strict";
 
+// const apiBaseURL = "http://microbloglite.us-east-2.elasticbeanstalk.com";
 const apiBaseURL = "http://localhost:5005";
 // Online server:   "http://microbloglite.us-east-2.elasticbeanstalk.com"
 

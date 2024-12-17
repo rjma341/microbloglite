@@ -2,7 +2,6 @@
 
 "use strict";
 
-// const apiBaseURL = "http://microbloglite.us-east-2.elasticbeanstalk.com";
 const apiBaseURL = "http://localhost:5005";
 // Online server:   "http://microbloglite.us-east-2.elasticbeanstalk.com"
 
@@ -64,6 +63,15 @@ function login (loginData) {
 }
 
 
+const logoutButton = document.querySelector("#logoutButton")
+document.addEventListener("DOMContentLoaded", function() {
+    document.body.addEventListener('click', function(event) {
+        if (event.target && event.target.id === 'logoutButton') {
+            event.preventDefault()
+            logout()
+        }
+    })
+})
 // This is the `logout()` function you will use for any logout button
 // which you may include in various pages in your app. Again, READ this
 // function and you will probably want to re-use parts of it for other
@@ -92,6 +100,52 @@ function logout () {
             // error with the fetch request above.
 
             window.localStorage.removeItem("login-data");  // remove login data from LocalStorage
-            window.location.assign("/");  // redirect back to landing page (index.html)
+            window.location.assign("signup.html");  // redirect back to landing page (index.html)
         });
+
 }
+
+
+
+document.getElementById("signupForm").addEventListener("submit", async function (event) {
+    event.preventDefault(); 
+
+   
+    const fullName = document.getElementById("fullName").value;
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+   
+    const userData = {
+        fullName: fullName,
+        username: username,
+        email: email,
+        password: password,
+    };
+
+    try {
+        
+        const response = await fetch(apiBaseURL + "/api/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userData),
+        });
+
+        if (!response.ok) {
+    
+            const errorData = await response.json();
+            alert(`Error: ${errorData.message}`);
+            return;
+        }
+
+        // Successful registration
+        alert("Registration successful! Redirecting to login page...");
+        window.location.href = "index.html"; 
+    } catch (error) {
+        console.error("Registration Error:", error);
+        alert("Something went wrong. Please try again.");
+    }
+});

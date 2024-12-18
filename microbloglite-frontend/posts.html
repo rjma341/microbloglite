@@ -13,6 +13,11 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
@@ -25,7 +30,7 @@
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="posts.css" />
 
-    <title>POSTS</title>
+    <title>/POSTS</title>
 
     <!-- Run BEFORE page is finished loading (before window.onload): -->
     <script src="auth.js"></script>
@@ -34,7 +39,7 @@
       if (isLoggedIn() === false) window.location.replace("/");
     </script>
   </head>
-  <body>
+  <body class="bg-primary">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <a class="navbar-brand" href="posts.html">Microblog Network</a>
@@ -61,22 +66,67 @@
             </li>
           </ul>
           <!-- Logout Button -->
-          <div class="d-flex container-">
+          <div class="d-flex">
             <button id="logoutButton" class="btn">Logout</button>
           </div>
         </div>
       </div>
     </nav>
+    <!-- Feed -->
+    <div class="feed">
+      <div class="feed_header"><h2>Home</h2></div>
 
-    <header>
-      <h1>POSTS PAGE</h1>
-    </header>
+      <div class="tweetBox">
+        <form id="tweetForm">
+          <div class="tweetbox_input">
+            <img
+              src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png"
+              alt="Avatar"
+            />
+            <input type="text" id="tweetText" placeholder="What's up?" />
+          </div>
+          <div class="tweetbox_icons">
+            <i class="uil uil-image"></i>
+            <i class="uil uil-smile"></i>
+            <i class="uil uil-film"></i>
 
-    <main></main>
+            <button type="submit" class="tweetBox_tweetButton">Post</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Sample Post -->
+      <div id="postList">
+        <!-- <div class="post">
+        <div class="post_avatar">
+          <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png" alt="Avatar" />
+        </div>
+        <div class="post_body">
+          <div class="post_header">
+            <div class="post_headerText">
+              <h3>
+                Aya Oosawa
+                <span class="postHeaderSpecial"> @Pinkie </span>
+              </h3>
+            </div>
+            <div class="post_headerDescription">
+              <p>....</p>
+            </div>
+          </div>
+          <img src="https://i.pinimg.com/736x/99/e5/04/99e504a4aa25cad170d7d032dde9c24b.jpg" alt="Post Image" />
+          <div class="post_footer">
+            <i class="uil uil-comment"></i>
+            <i class="uil uil-repeat"></i>
+            <i class="uil uil-heart"></i>
+            <i class="uil uil-share-alt"></i>
+          </div>
+        </div>
+      </div> -->
+      </div>
+    </div>
 
     <footer></footer>
 
-    <!-- Page-specific code -->
     <script src="posts.js"></script>
   </body>
 </html>

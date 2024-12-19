@@ -71,34 +71,6 @@ function populatePostCards(posts) {
   }
 }
 
-// function createPostCard(post) {
-//   // const cardContainer = document.createElement("div");
-//   // cardContainer.className = "card";
-//   // cardContainer.style.width = "18rem";
-
-//   // const cardBody = document.createElement("div");
-//   // cardBody.className = "card-body";
-
-//   // const cardTitle = document.createElement("h6");
-//   // cardTitle.className = "card-title";
-//   // cardTitle.textContent = posts.productName;
-
-//   // const cardSubtitle = document.createElement("h6");
-//   // cardSubtitle.className = "card-subtitle mb-2 text-body-secondary";
-//   // cardSubtitle.textContent = "$" + product.unitPrice.toFixed(2);
-
-//   // const cardText = document.createElement("p");
-//   // cardText.className = "card-text text-body-secondary";
-//   // cardText.textContent = product.supplier;
-
-//   // cardBody.appendChild(cardTitle);
-//   // cardBody.appendChild(cardSubtitle);
-//   // cardBody.appendChild(cardText);
-//   // cardContainer.appendChild(cardBody);
-
-//   postList.appendChild(cardContainer);
-// }
-
 function createPostCard(post) {
   // Create the outer post div
   const postDiv = document.createElement("div");

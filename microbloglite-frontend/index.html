@@ -49,6 +49,23 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
+      }
+
+      .link-container {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .plain-link {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+      }
+
+      .plain-link:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
@@ -81,9 +98,13 @@
           />
         </div>
 
-        <button id="loginButton" type="submit" class="btn btn-primary d-flex btn1">
-          Login
-        </button>
+        <div class="link-container">
+          <button id="loginButton" type="submit" class="btn btn-primary d-flex btn1">
+            Login
+          </button>
+          <!-- Plain link (no button styling) -->
+          <a href="signup.html" class="plain-link mt-2">New Here?</a>
+        </div>
       </form>
     </main>
 

@@ -1,5 +1,65 @@
 "use strict";
 
+// Once the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+  // Redirect to login if the user is not logged in
+  if (!isLoggedIn()) {
+    window.location.assign("index.html");
+    return;
+  }
+
+  // Initialize the profile page with user data
+  initializeProfile();
+});
+
+/**
+ * Initializes the profile page with user data.
+ */
+async function initializeProfile() {
+  // Fetch additional user details if available
+  await fetchAndPopulateUserDetails();
+}
+
+/**
+ * Fetches additional user details from the backend and updates the profile page.
+ */
+async function fetchAndPopulateUserDetails() {
+  const authToken = getLoginData().token;
+  const defaultAvatarUrl = "https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png";
+
+  try {
+    // Update the API endpoint if necessary
+    const response = await fetch(`http://localhost:5005/api/users/${getLoginData().username}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+      },
+    });
+
+    if (response.ok) {
+      const userDetails = await response.json();
+
+      // Check if we got the data and populate profile
+      const profileBio = document.querySelector(".profileBio");
+      const profilePicture = document.querySelector(".profilePicture");
+      const profileName = document.querySelector(".profileName");
+      const profileHandle = document.querySelector(".profileHandle");
+
+      // Update the profile information from API response
+      profileName.textContent = userDetails.fullName;
+      profileHandle.textContent = `@${userDetails.username}`;
+      profileBio.textContent = userDetails.bio || "No bio available."; // Default bio message if none is provided
+      profilePicture.src = userDetails.avatarUrl || defaultAvatarUrl; // Use default avatar if no avatar URL provided
+    } else {
+      console.error("Failed to fetch user details:", await response.json());
+    }
+  } catch (error) {
+    console.error("Error fetching user details:", error);
+  }
+}
+
+"use strict";
+
 const postList = document.getElementById("postList");
 const authToken = getLoginData().token;
 
@@ -151,3 +211,4 @@ async function initializePage() {
 }
 
 initializePage();
+

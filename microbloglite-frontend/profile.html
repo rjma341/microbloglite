@@ -62,35 +62,40 @@
       </div>
     </nav>
 
-    <header class="text-center py-4 bg-light">
-      <img
-        src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png" 
-        alt="User Avatar"
-        class="rounded-circle"
-        width="150"
-      />
-      <h1 class="mt-3">Welcome, [Username]</h1> <!-- Dynamically insert user info -->
-      <p class="text-muted">Make the vibes count! This is your space.</p>
-      <div class="text-center mt-3">
-        <button
-          id="openPostModal"
-          class="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#postModal"
-        >
-          Create New Post
-        </button>
-      </div>
-    </header>
+    
 
     <main class="container mt-5">
-      <div class="profile-container">
-        <div class="feed-header mb-3">
-          <h2>Your Posts</h2>
+      <!-- Profile Section -->
+      <div class="profile-container mb-5 text-center">
+        <div class="card shadow-sm p-3 mb-5 bg-body rounded">
+          <div class="d-flex justify-content-center">
+            <img 
+              src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png" 
+              alt="Profile Picture" 
+              class="profilePicture rounded-circle" 
+              width="120"
+            />
+          </div>
+          <h2 class="profileName mt-3">User Full Name</h2>
+          <p class="profileHandle text-muted">@username</p>
+          
+          <button
+            id="openPostModal"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#postModal"
+          >
+            Create New Post
+          </button>
         </div>
-        <div id="postList">
-          <!-- Dynamic posts will appear here -->
-        </div>
+      </div>
+      
+
+      <div class="feed-header mb-3">
+        <h2>Your Posts</h2>
+      </div>
+      <div id="postList">
+        <!-- Dynamic posts will appear here -->
       </div>
     </main>
 

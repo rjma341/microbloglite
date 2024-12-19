@@ -1,0 +1,94 @@
+/* Container for Posts */
+#postList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Space between posts */
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+/* Individual Post Styling */
+.post {
+    background: #ffffff; /* Card-style background */
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* Avatar Section */
+.post_avatar {
+    flex-shrink: 0;
+    align-self: flex-start;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+}
+
+.post_avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Post Body Styling */
+.post_body {
+    flex: 1; /* Take up remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Post Header */
+.post_header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.post_headerText h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #4a90e2;
+    font-weight: bold;
+}
+
+.postHeaderSpecial {
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: normal;
+    margin-left: 0.5rem;
+}
+
+.post_headerDescription p {
+    margin: 0;
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Post Footer (Icons Section) */
+.post_footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    color: #888;
+}
+
+.post_footer i {
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.post_footer i:hover {
+    color: #4a90e2;
+}

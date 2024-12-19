@@ -152,15 +152,14 @@ function createPostCard(post) {
 
   const commentIcon = document.createElement("i");
   commentIcon.classList.add("uil", "uil-comment");
-  const repeatIcon = document.createElement("i");
-  repeatIcon.classList.add("uil", "uil-repeat");
+
   const heartIcon = document.createElement("i");
   heartIcon.classList.add("uil", "uil-heart");
   const shareIcon = document.createElement("i");
   shareIcon.classList.add("uil", "uil-share-alt");
 
   postFooterDiv.appendChild(commentIcon);
-  postFooterDiv.appendChild(repeatIcon);
+  
   postFooterDiv.appendChild(heartIcon);
   postFooterDiv.appendChild(shareIcon);
 

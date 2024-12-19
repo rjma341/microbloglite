@@ -63,10 +63,10 @@ async function fetchAndPopulateUserDetails() {
 const postList = document.getElementById("postList");
 const authToken = getLoginData().token;
 
-// Open the modal logic is already handled by Bootstrap, so no need to change anything for opening the modal.
+
 
 // When the "Submit" button is clicked in the modal, this handler will submit the post
-document.getElementById("submitPostButton").addEventListener("click", async function() {
+document.getElementById("submitPostButton").addEventListener("click", async function () {
   const postText = document.getElementById("postTextModal").value;
 
   // Make sure the post text is not empty
@@ -198,10 +198,60 @@ function createPostCard(post) {
 
   postBodyDiv.appendChild(postHeaderDiv);
   postBodyDiv.appendChild(postFooterDiv);
+
+  // Create the delete button
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("btn", "btn-sm", "d-flex", "justify-content-end" , "delete-post");
+  deleteButton.textContent = "remove";
+  deleteButton.dataset.postid = post._id;
+
+  // Apply custom styles if needed
+deleteButton.style.fontSize = "0.75rem";
+deleteButton.style.padding = "5px 10px";
+
+  postBodyDiv.appendChild(deleteButton);
+
   postDiv.appendChild(avatarDiv);
   postDiv.appendChild(postBodyDiv);
+  
 
   return postDiv;
+}
+
+// Handle the delete post click event
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("delete-post")) {
+    const postId = event.target.dataset.postid;
+    if (confirm("Are you sure you want to delete this post?")) {
+      deletePost(postId);
+    }
+  }
+});
+
+// Delete the post
+async function deletePost(postId) {
+  const options = {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
+  };
+
+  try {
+    const response = await fetch(`http://localhost:5005/api/posts/${postId}`, options);
+    
+    if (response.ok) {
+      // If the post is deleted, remove the post card from the page
+      const postElement = document.querySelector(`[data-postid="${postId}"]`).closest('.post');
+      postElement.remove();
+      alert("Post deleted successfully.");
+    } else {
+      alert("Error deleting post.");
+    }
+  } catch (error) {
+    console.error("Error deleting post:", error);
+    alert("Something went wrong while deleting the post.");
+  }
 }
 
 // Initialize the page with user's posts
@@ -211,4 +261,3 @@ async function initializePage() {
 }
 
 initializePage();
-

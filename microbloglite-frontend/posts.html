@@ -42,7 +42,7 @@
   <body class="bg-primary">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand" href="posts.html">Microblog Network</a>
+        <a class="navbar-brand" href="posts.html">VibeSphere</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -74,54 +74,30 @@
     </nav>
     <!-- Feed -->
     <div class="feed">
-      <div class="feed_header"><h2>Home</h2></div>
+      <div class="feed_header d-flex justify-content-center mt-5"><h2>Friends Posts</h2></div>
 
       <div class="tweetBox">
         <form id="tweetForm">
-          <div class="tweetbox_input"> 
+          <div class="tweetbox_input">
             <img
               src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png"
               alt="Avatar"
             />
-            <input type="text" id="tweetText" placeholder="What's up?" />
+            <textarea id="tweetText" placeholder="What's On Your Mind?"></textarea>
           </div>
           <div class="tweetbox_icons">
-            <i class="uil uil-image"></i>
-            <i class="uil uil-smile"></i>
-            <i class="uil uil-film"></i>
-
-            <button type="submit" class="tweetBox_tweetButton">Post</button>
+            <div>
+              <i class="uil uil-image"></i>
+              <i class="uil uil-smile"></i>
+              <i class="uil uil-film"></i>
+            </div>
+            <button type="submit" class="tweetBox_tweetButton">Share With Your Friends</button>
           </div>
         </form>
       </div>
-
-      <!-- Sample Post -->
+      
       <div id="postList">
-        <!-- <div class="post">
-        <div class="post_avatar">
-          <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png" alt="Avatar" />
-        </div>
-        <div class="post_body">
-          <div class="post_header">
-            <div class="post_headerText">
-              <h3>
-                Aya Oosawa
-                <span class="postHeaderSpecial"> @Pinkie </span>
-              </h3>
-            </div>
-            <div class="post_headerDescription">
-              <p>....</p>
-            </div>
-          </div>
-          <img src="https://i.pinimg.com/736x/99/e5/04/99e504a4aa25cad170d7d032dde9c24b.jpg" alt="Post Image" />
-          <div class="post_footer">
-            <i class="uil uil-comment"></i>
-   
-            <i class="uil uil-heart"></i>
- 
-          </div>
-        </div>
-      </div> -->
+        
       </div>
     </div>
 

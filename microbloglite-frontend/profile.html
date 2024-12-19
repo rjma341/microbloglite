@@ -18,25 +18,25 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Global CSS (CSS rules you want applied to all pages) -->
+    <!-- Global CSS -->
     <link rel="stylesheet" href="global.css" />
 
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="posts.css" />
 
-    <title>POSTS</title>
+    <title>Your Profile - VibeSphere</title>
 
-    <!-- Run BEFORE page is finished loading (before window.onload): -->
+    <!-- Run BEFORE page is finished loading -->
     <script src="auth.js"></script>
     <script>
-      // If the user is NOT logged in, redirect back to the landing page (index.html)
+      // Redirect if not logged in
       if (isLoggedIn() === false) window.location.replace("/");
     </script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand" href="posts.html">Microblog Network</a>
+        <a class="navbar-brand" href="posts.html">VibeSphere</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -51,31 +51,102 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="posts.html"
-                >Home</a
-              >
+              <a class="nav-link active" href="posts.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="profile.html">Profile</a>
             </li>
           </ul>
-          <!-- Logout Button -->
-          <div class="d-flex">
-            <button id="logoutButton" class="btn">Logout</button>
-          </div>
+          <button id="logoutButton" class="btn">Logout</button>
         </div>
       </div>
     </nav>
 
-    <header>
-      <h1>Profile</h1>
+    <header class="text-center py-4 bg-light">
+      <img
+        src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png" 
+        alt="User Avatar"
+        class="rounded-circle"
+        width="150"
+      />
+      <h1 class="mt-3">Welcome, [Username]</h1> <!-- Dynamically insert user info -->
+      <p class="text-muted">Make the vibes count! This is your space.</p>
+      <div class="text-center mt-3">
+        <button
+          id="openPostModal"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#postModal"
+        >
+          Create New Post
+        </button>
+      </div>
     </header>
 
-    <main></main>
+    <main class="container mt-5">
+      <div class="profile-container">
+        <div class="feed-header mb-3">
+          <h2>Your Posts</h2>
+        </div>
+        <div id="postList">
+          <!-- Dynamic posts will appear here -->
+        </div>
+      </div>
+    </main>
 
-    <footer></footer>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="postModal"
+      tabindex="-1"
+      aria-labelledby="postModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="postModalLabel">New Post</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <textarea
+              id="postTextModal"
+              class="form-control"
+              rows="4"
+              placeholder="What's on your mind?"
+              required
+            ></textarea>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              id="submitPostButton"
+              class="btn btn-primary"
+            >
+              Share
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!-- Page-specific code -->
-    <script src="posts.js"></script>
+    <footer class="text-center py-4">
+      <p class="text-muted">&copy; 2024 VibeSphere</p>
+    </footer>
+
+    <!-- Page-specific JS -->
+    <script src="profile.js"></script>
   </body>
 </html>

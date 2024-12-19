@@ -124,7 +124,8 @@ function createPostCard(post) {
   const postHeaderTextDiv = document.createElement("div");
   postHeaderTextDiv.classList.add("post_headerText");
   const headerH3 = document.createElement("h3");
-  headerH3.textContent = post.username;
+  //headerH3.textContent = post.username;
+  headerH3.textContent = post.fullName;
   const postHeaderSpecialSpan = document.createElement("span");
   postHeaderSpecialSpan.classList.add("postHeaderSpecial");
   postHeaderSpecialSpan.textContent = ` @${post.username}`;
